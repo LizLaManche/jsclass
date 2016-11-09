@@ -1,0 +1,59 @@
+<script>
+
+const TAX_RATE = 0.05;
+const ACCESSORY_PRICE = 9.99;
+var phone_amount = 99.99;
+var bank_balance = 302.13;
+var want_phone = 0
+var want_accessory = 0
+num_phones = 0
+num_accessories = 0
+var total = 0
+
+taxd_phone_amount = phone_amount + (phone_amount * TAX_RATE);
+taxd_accessory_amount = ACCESSORY_PRICE + (ACCESSORY_PRICE * TAX_RATE);
+
+
+for(var num_phones = 0; num_phones <= 10; num_phones = num_phones + 1) {
+    total = total + (taxd_phone_amount * num_phones);
+    
+    if (total < bank_balance) {
+    want_phone = num_phones;
+    // also want accessory?
+        total = total + (taxd_accessory_amount * num_phones);
+        if (total < bank_balance) {
+            want_accessory = num_phones;
+        }
+        else {
+        
+        }
+    }
+    else {
+    console.log( "No" );
+    }
+    
+}
+
+
+if ( want_phone == 1 ) {
+console.log( "I'll buy the phone!" );
+}
+if ( want_phone > 1 ) {
+console.log( "I'll buy " + num_phones + " phones!" );
+}
+
+if ( want_phone == 1 && want_accessory == 0 ) {
+console.log( "But no accessories, thanks." );
+}
+if ( want_phone == 1 && want_accessory == 1 ) {
+console.log( "I'll also take the accessory!" );
+}
+if ( want_accessory > 1 ) {
+console.log( "I'll also take " + num_phones + " accessories!" );
+}
+else {
+console.log( "No, thanks." );
+}
+
+
+</script>
